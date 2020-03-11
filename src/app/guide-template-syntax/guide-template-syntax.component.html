@@ -1,0 +1,61 @@
+<h1 ngNonBindable>Interpolation {{...}}</h1>
+  <h2>{{item}}</h2>
+  <div><a href="{{aUrl}}">Interpolation in the attribute</a></div>
+
+<h1 ngNonBindable>Evaluates and convert to string in the curly braces {{ 1 + 1 + getVal()}}</h1>
+  <p>The sum of 1 + 1 + getVal() is {{ 1 + 1 + getVal()}}</p>
+
+<h1>Template expression [property]="expression"</h1>
+  <p>Can't use JavaScript expressions that have or promote side efferts. eg. =, +=, ++</p>
+
+<h1>Expression context</h1>
+  <h2>Refer the properties of component</h2>
+    <p>{{inTheComponent}}</p>
+    <div><a [href]="aUrl">Interpolation in the attribute</a></div>
+
+  <h2>Refer the template's context</h2>
+    <h3>Template input variable</h3>
+      <ul>
+        <li *ngFor="let item of heroes">{{item.id}}-{{item.name}}</li>
+      </ul>
+    <h3>Template reference variable</h3>
+      <label #tryInput>Label DOM string</label>
+      <p>Get label's DOM of innerText: {{tryInput.innerText}}</p>
+
+<h1>Template's stamements</h1>
+  <h2>Binding with the method of component</h2>
+    <button (click)="deleteHero()">delete hero</button>
+  <h2>Refer the template's context</h2>
+    <button (click)="deleteHero($event)">delete hero</button>
+    <ul>
+      <li *ngFor="let item of heroes"><button (click)="deleteHero(item.id)">delete hero</button></li>
+    </ul>
+    <form #heroForm (ngSubmit)="onSubmit(heroForm)">This is form</form>
+
+<h1>Property Binding [property]="expression"</h1>
+  <p [innerText]="item"></p>
+  <tr>
+    <td [colSpan]="2"></td>
+  </tr>
+  <p>Button here: <button [disabled]="isUnChanged">Button</button></p>
+
+<h1>Attribute Binding [attr.aria-label]="actionName"</h1>
+  <button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+
+<h1>Class Binding</h1>
+  <h2>Single class binding</h2>
+    <p [class.foo]="isUnChanged">{{isUnChanged}} with class</p>
+  <h2>Multi-class binding</h2>
+    <p [class]="class + ' class-2'">{{class + ' class-2'}} with class</p>
+    <p [class]="{'class': isUnChanged, 'class-2': isUnChanged}">{{class + ' class-2'}} with class</p>
+    <p [class]="['class', 'class-2']">{{'class' + ' class-2'}} with class</p>
+
+<h1>Style Binding</h1>
+  <h2>Single style binding</h2>
+    <p [style.width]="widthString">{{widthString}} with style</p>
+  <h2>Single style binding with unit</h2>
+    <p [style.width.px]="width">{{width}} with style</p>
+  <h2>Multi-style binding with unit</h2>
+    <p [style]="'width: 100px'">{{'width: 100px'}} with style</p>
+    <p [style]="{'width': widthString, 'height': '0px'}">{{'width: ' + widthString}} and {{'height: ' + '0px'}} with style</p>
+    <p [style]="['width', ' 100px']">{{'width' + ' 100px'}} with style (not working)</p>

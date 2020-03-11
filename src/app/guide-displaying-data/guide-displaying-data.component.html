@@ -1,0 +1,27 @@
+<h1 ngNonBindable>Interpolation {{...}}</h1>
+  {{interpolation}}
+
+<h1 ngNonBindable>Constructor initalization interpolation {{...}}</h1>
+  {{constructorInterpolation}}
+
+<h1 ngNonBindable>*ngFor to list the array of porperty</h1>
+  <ul>
+    <li *ngFor="let item of heroes">{{item}}</li>
+  </ul>
+
+<h1>Inline Template</h1>
+  <ng-container ngNonBindable>
+    Must not have both templateUrl and template<br>
+    template:`<br>
+    &nbsp;&nbsp;&lt;h1&gt; ngNoneBindable&gt;Inline Template{{...}}&lt;h1&gt;<br>
+    &nbsp;&nbsp;{{...}}<br>
+    `
+  </ng-container>
+
+<h1 ngNoneBindable>Use class to create the property</h1>
+  <ul>
+    <li *ngFor="let item of useClassHeroes">{{item.id}}-{{item.name}}</li>
+  </ul>
+
+  <h1 ngNoneBindable>*ngIf to add or remove the DOM</h1>
+    <p *ngIf="useClassHeroes.length > 3">There are many heroes.</p>
