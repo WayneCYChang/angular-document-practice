@@ -22,7 +22,7 @@
       <label #tryInput>Label DOM string</label>
       <p>Get label's DOM of innerText: {{tryInput.innerText}}</p>
 
-<h1>Template's stamements</h1>
+<h1>Template's statements</h1>
   <h2>Binding with the method of component</h2>
     <button (click)="deleteHero()">delete hero</button>
   <h2>Refer the template's context</h2>
@@ -53,9 +53,115 @@
 <h1>Style Binding</h1>
   <h2>Single style binding</h2>
     <p [style.width]="widthString">{{widthString}} with style</p>
+    <p [style.width]="true ? '280px' : '280px'">{{widthString}} with style</p>
   <h2>Single style binding with unit</h2>
     <p [style.width.px]="width">{{width}} with style</p>
   <h2>Multi-style binding with unit</h2>
     <p [style]="'width: 100px'">{{'width: 100px'}} with style</p>
-    <p [style]="{'width': widthString, 'height': '0px'}">{{'width: ' + widthString}} and {{'height: ' + '0px'}} with style</p>
-    <p [style]="['width', ' 100px']">{{'width' + ' 100px'}} with style (not working)</p>
+    <p [style]="{width: widthString, height: '0px'}">{{'width: ' + widthString}} and {{'height: ' + '0px'}} with style</p>
+    <p [style]="['width', '100px']">{{'width' + ' 100px'}} with style (<span style="color: red;">not working</span>)</p>
+
+<h1>Event Binding (event)="template statement"</h1>
+  <h2>Target Event</h2>
+    <button (click)="deleteHero($event)">Delete Hero</button>
+  <h2>$event and event handling statements</h2>
+    <button (click)="event1 = $event">Click</button>
+    <p [innerText]="getText('1')"></p>
+    <button (click)="event2 = $event.target">Click</button>
+    <p>Get Event $event.target: {{event2}}</p>
+    <button (click)="getTriggerEvent($event.target.value, '3')" [value]="'DOM Value'">Click</button>
+    <p>Get Event $event.target.value: {{event3}}</p>
+  <h2>Custom events</h2>
+    <app-child-of-template-syntax (outPutChild)="triggerFromChild()">123</app-child-of-template-syntax>
+    <p>Get Trigger: {{getChild}}</p>
+
+<h1>Two-Way Binding [(...)]</h1>
+  <p style="color: red;">&#8251;settable property called x and a corresponding event named xChange</p>
+  <p>eg:</p>
+  <p>@Input() twoWay: number;</p>
+  <p>@Output() twoWayChange = new Eventemitter&lsaquo;number&rsaquo;();</p>
+  <app-two-way-binding [(tryTwo)]="twoBind"></app-two-way-binding>
+  <input type="text" [value]="twoBind" (keyup.enter)="twoBind = +$event.target.value">
+
+<h1>Build-in Directives</h1>
+  <h2>Attribute Directives</h2>
+    <h3>[ngClass]="{{exampleClass}}"</h3>
+      <p [ngClass]="{'class': true}">ngClass</p>
+      <p [ngClass]="true ? 'classes' : 'classes-two'">ngClass</p>
+      <p [ngClass]="setClass">ngClass</p>
+    <h3>[ngStyle]="{{exampleStyle}}"</h3>
+      <p [ngStyle]="{'font-size': true ? '12px' : '14px'}">ngStyle</p>
+      <p [ngStyle]="setStyle">ngStyle</p>
+
+<h1>[(ngModel)] Two-Way Binding</h1>
+  <p style="color: red;">&#8251;Import FormsModule to us ngModel</p>
+  <h2>Normal Use</h2>
+    <label for="normal-use">[(ngModel)] = <input type="text" id="normal-use" [(ngModel)]="exampleBind"></label>
+    <br>
+    <input [(ngModel)]="exampleBind">, [(ngModel)] bind = {{exampleBind}}
+  <h2>Expended Use</h2>
+    <p style="color: red;">&#8251;The $event will get the target.value directly</p>
+    <label for="expended-use"></label>
+    <input type="text" id="expended-use" [ngModel]="exampleBind" (ngModelChange)="setUpperCase($event)">
+
+<h1>Build-in structural directives</h1>
+  <h2>*ngIf=[expression] add or remove the DOM by applying an *ngIf</h2>
+    <p style="color: red;">&#8251;*ngIf remove the DOM element not to hidden the DOM element</p>
+    <p *ngIf="true">*ngIf</p>
+    <h3>*ngIf=[expression] add or remove the DOM by applying an *ngIf</h3>
+      <p *ngIf="true">*ngIf</p>
+    <h3>Use *ngIf to prevent against null in Angular<span style="color: red;">(Not Good)</span></h3>
+      <!-- <p *ngIf="nullData">{{nullData.name}}</p> -->
+  <h2>*ngFor is a repeater directive to list the item of array</h2>
+    <p *ngFor="let item of heroes">Read the item of Array : {{item.name}}</p>
+    <p *ngFor="let item of heroes; let i = index">Read the index : {{i}}</p>
+    <p *ngFor="let item of heroes; trackBy: trackByItems">Use trackBy avoid *ngFor to re-flesh all exist DOM if the DOM exist: {{item.id}}</p>
+  <h2>*ngSwitch to put only the selected DOM</h2>
+  <div [ngSwitch]="currentItem">
+    <div *ngSwitchCase="'a1'">output a1</div>
+    <div *ngSwitchDefault>output default</div>
+  </div>
+
+<h1>Template reference variables(#var)</h1>
+  <input #phone placeholder="phone number">
+  <button (click)="getReferenceVariable(phone)">click to get #var</button>
+  <p>{{showReferenceVariable}}</p>
+
+<h1>@Input() and @Output() properties</h1>
+  <p style="color: red;">&#8251;Can use ngOnChanges to watch @Input()</p>
+  <app-parent> </app-parent>
+
+<h1>The pipe operator(|)</h1>
+  <p style="color: red;">&#8251;The pipe operator has a higher precedence than the ternary operator(?:)</p>
+  <p style="color: red;">&#8251;The bast way to use pipe operator in ternary operator: (a | x) ? (b | x) : (c | x)</p>
+  <h2>Single Pipe</h2>
+    <p>Show Title: {{title | uppercase}}</p>
+  <h2>Multi Pipe</h2>
+    <p>Show Title: {{title | uppercase | lowercase}}</p>
+  <h2>Pipe with parameter</h2>
+    <p>Show Date: {{date | date:'longDate'}}</p>
+
+<h1>The safe navigation operator(?)</h1>
+  <h2>Prevent to search, if unknow.item is null</h2>
+    <p>The item name is: {{unknow?.item}}</p>
+  <h2>To allow function get parameter null</h2>
+    <pre ngNonBindable>
+      function(parameter?)
+        //can use null parameter
+    </pre>
+
+<h1>The non-null assertion operator(!)(I don't get it)</h1>
+    <p>The item's color is: {{item2!.id}}</p>
+
+<h1>Build-in template function($any)</h1>
+  <p>To change any type to any</p>
+  <p>Show title as $any: {{$any(title)}}</p>
+  <h2>Use with this to access undeclared member of the component(I don't get it)</h2>
+
+<h1>SVG in templates</h1>
+<svg>
+  <g>
+    <rect x="0" y="0" width="100" height="100" [attr.fill]="fillColor" (click)="changeColor()" />
+    <text x="120" y="50">click the rectangle to change the fill color</text>
+  </g>
+</svg>

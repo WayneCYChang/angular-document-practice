@@ -1,0 +1,5 @@
+<p #todayItem>
+  Today's item: {{item}}
+</p>
+<button (click)="triggerOutput()">click to trigger child's button</button>
+<button (click)="triggerOutput(todayItem.innerText)">click to trigger child's button(reference variable)</button>
