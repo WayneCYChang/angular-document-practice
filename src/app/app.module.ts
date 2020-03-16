@@ -11,6 +11,8 @@ import { ChildOfTemplateSyntaxComponent } from './guide-template-syntax/child-of
 import { TwoWayBindingComponent } from './guide-template-syntax/two-way-binding/two-way-binding.component';
 import { ParentComponent } from './guide-template-syntax/parent/parent.component';
 import { ChildComponent } from './guide-template-syntax/parent/child/child.component';
+import { GuideUserInputComponent } from './guide-user-input/guide-user-input.component';
+import { GuideLifecycleHookComponent } from './guide-lifecycle-hook/guide-lifecycle-hook.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ChildComponent } from './guide-template-syntax/parent/child/child.compo
     ChildOfTemplateSyntaxComponent,
     TwoWayBindingComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    GuideUserInputComponent,
+    GuideLifecycleHookComponent
   ],
   imports: [
     BrowserModule,

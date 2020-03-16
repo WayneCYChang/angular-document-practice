@@ -1,0 +1,23 @@
+<h1>Binding to user input (click)="expression"</h1>
+  <button (click)="onClick()">Click</button>
+  <p>{{clickMessage}}</p>
+
+<h1>Get user input from the $event object</h1>
+  <input type="text" (keyup)="onKey($event)">
+  <p>Get DOM event: {{values}}</p>
+  <p>Get DOM event target: {{values2}}</p>
+  <p>Get DOM event target value: {{values3}}</p>
+
+<h1>Get user input from template reference variable</h1>
+  <p style="color: red;">&#8251;At least binding a DOM event to trigger auto-detection flesh the property</p>
+  <input type="text" #box (keyup)="0">
+  <p>{{box.value}}</p>
+
+<h1>Key event filter(keyup.xxx)</h1>
+  <p style="color: red;">&#8251;keyup will listen all DOM event on keyboard, use keyup.xxx to focus on matters</p>
+  <input type="text" #box2 (keyup.enter)="0">
+  <p>{{box2.value}}</p>
+
+<h1>On blur (blur)="expression"</h1>
+  <input type="text" #box3 (keyup.enter)="0" (blur)="0">
+  <p>{{box3.value}}</p>
