@@ -39,6 +39,7 @@ export class GuideTemplateSyntaxComponent implements OnInit {
     name: null
   };
   fillColor: string;
+  value: number;
 
   constructor() {
     this.item = 'interpolation';
@@ -69,6 +70,7 @@ export class GuideTemplateSyntaxComponent implements OnInit {
     this.title = 'lowercase title';
     this.date = Date.now();
     this.fillColor = 'rgb(255, 0, 0)';
+    this.value = 1;
   }
 
   ngOnInit(): void {
@@ -131,5 +133,9 @@ export class GuideTemplateSyntaxComponent implements OnInit {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     this.fillColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
+  getValue(reference: any): void {
+    console.log(reference);
   }
 }

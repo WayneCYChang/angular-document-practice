@@ -80,7 +80,7 @@
   <p>eg:</p>
   <p>@Input() twoWay: number;</p>
   <p>@Output() twoWayChange = new Eventemitter&lsaquo;number&rsaquo;();</p>
-  <app-two-way-binding [(tryTwo)]="twoBind"></app-two-way-binding>
+  <app-two-way-binding [(Model)]="twoBind"></app-two-way-binding>
   <input type="text" [value]="twoBind" (keyup.enter)="twoBind = +$event.target.value">
 
 <h1>Build-in Directives</h1>
@@ -150,7 +150,7 @@
         //can use null parameter
     </pre>
 
-<h1>The non-null assertion operator(!)(I don't get it)</h1>
+<h1 style="color: red;">The non-null assertion operator(!)(I don't get it)</h1>
     <p>The item's color is: {{item2!.id}}</p>
 
 <h1>Build-in template function($any)</h1>

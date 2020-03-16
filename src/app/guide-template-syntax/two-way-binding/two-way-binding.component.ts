@@ -6,14 +6,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./two-way-binding.component.css']
 })
 export class TwoWayBindingComponent implements OnInit {
-  @Input()  tryTwo: number;
-  @Output() tryTwoChange = new EventEmitter<number>();
+  @Input()  Model: number;
+  @Output() ModelChange = new EventEmitter<number>();
 
   ngOnInit(): void {
   }
 
   triggerEvent(): void {
-    this.tryTwo = this.tryTwo + 1;
-    this.tryTwoChange.emit(this.tryTwo);
+    this.Model = this.Model + 1;
+    this.ModelChange.emit(this.Model);
   }
 }
