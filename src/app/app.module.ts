@@ -13,6 +13,12 @@ import { ParentComponent } from './guide-template-syntax/parent/parent.component
 import { ChildComponent } from './guide-template-syntax/parent/child/child.component';
 import { GuideUserInputComponent } from './guide-user-input/guide-user-input.component';
 import { GuideLifecycleHookComponent } from './guide-lifecycle-hook/guide-lifecycle-hook.component';
+import { LifecycleChildComponent } from './guide-lifecycle-hook/lifecycle-child/lifecycle-child.component';
+import { LifecycleViewchildComponent } from './guide-lifecycle-hook/lifecycle-viewchild/lifecycle-viewchild.component';
+import { LifeCycleBriefComponent } from './guide-lifecycle-hook/life-cycle-brief/life-cycle-brief.component';
+import { LifeCycleBriefChildComponent } from './guide-lifecycle-hook/life-cycle-brief/life-cycle-brief-child/life-cycle-brief-child.component';
+import { BriefDirective } from './guide-lifecycle-hook/life-cycle-brief/brief.directive';
+import { BriefSecondDirective } from './guide-lifecycle-hook/life-cycle-brief/brief-second.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { GuideLifecycleHookComponent } from './guide-lifecycle-hook/guide-lifecy
     ParentComponent,
     ChildComponent,
     GuideUserInputComponent,
-    GuideLifecycleHookComponent
+    GuideLifecycleHookComponent,
+    LifecycleChildComponent,
+    LifecycleViewchildComponent,
+    LifeCycleBriefComponent,
+    LifeCycleBriefChildComponent,
+    BriefDirective,
+    BriefSecondDirective
   ],
   imports: [
     BrowserModule,

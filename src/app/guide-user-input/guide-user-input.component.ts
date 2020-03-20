@@ -10,6 +10,7 @@ export class GuideUserInputComponent implements OnInit {
   values = 0;
   values2 = 0;
   values3 = 0;
+  name: string;
 
   constructor() { }
 

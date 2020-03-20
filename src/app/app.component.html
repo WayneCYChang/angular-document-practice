@@ -1,4 +1,15 @@
 <app-guide-displaying-data></app-guide-displaying-data>
 <app-guide-template-syntax></app-guide-template-syntax>
 <app-guide-user-input></app-guide-user-input>
+<div>
+  <app-guide-lifecycle-hook [triggerHook]="inputHook" *ngIf="toggleLifeCycle">{{projectLifecycle}}</app-guide-lifecycle-hook>
+  <button (click)="toggleLifeCycle = !toggleLifeCycle">Toggle Life Cycle</button>
+  <button (click)="triggerHook()">Click to trigger ngOnChanges</button>
+  <button (click)="0">Click</button>
+  <button (click)="countProject()">Click to project life cycle</button>
+</div>
+<app-life-cycle-brief *ngIf="briefChild">
+  <app-life-cycle-brief-child></app-life-cycle-brief-child>
+</app-life-cycle-brief>
+<button (click)="briefChild = !briefChild">Brief Child</button>
 <router-outlet></router-outlet>

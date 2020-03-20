@@ -1,5 +1,5 @@
 <p #todayItem>
-  Today's item: {{item}}
+  Today's item: {{item}} <ng-content></ng-content>
 </p>
 <button (click)="triggerOutput()">click to trigger child's button</button>
 <button (click)="triggerOutput(todayItem.innerText)">click to trigger child's button(reference variable)</button>

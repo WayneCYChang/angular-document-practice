@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterContentInit, AfterContentChecked } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, AfterContentInit, AfterContentChecked {
   @Input() item: string;
   @Output() outItem = new EventEmitter<string>();
   itemName = 'emit';
@@ -23,4 +23,11 @@ export class ChildComponent implements OnInit {
     }
   }
 
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit on parent child');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked on parent child');
+  }
 }

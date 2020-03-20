@@ -21,3 +21,6 @@
 <h1>On blur (blur)="expression"</h1>
   <input type="text" #box3 (keyup.enter)="0" (blur)="0">
   <p>{{box3.value}}</p>
+
+  <button (click)="0">Click on user input</button>
+  <input type="text" [(ngModel)]="name">

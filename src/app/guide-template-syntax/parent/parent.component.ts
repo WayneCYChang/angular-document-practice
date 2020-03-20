@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ParentComponent implements OnInit {
   currentItem: string;
   getOutput = '';
+  projectParent = 0;
 
   constructor() {
     this.currentItem = 'chang to currentItem';
@@ -18,5 +19,9 @@ export class ParentComponent implements OnInit {
 
   triggerFromChildEvent(event: string): void {
     this.getOutput = event;
+  }
+
+  project(): void {
+    this.projectParent += 1;
   }
 }

@@ -1,2 +1,3 @@
-<app-child [item]="currentItem" (outItem)="triggerFromChildEvent($event)"></app-child>
+<app-child [item]="currentItem" (outItem)="triggerFromChildEvent($event)">{{projectParent}}</app-child>
+<button (click)="project()">Click to parent child</button>
 <p>Show the trigger : {{getOutput}}</p>

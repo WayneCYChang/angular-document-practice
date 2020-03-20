@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-document-practice';
+  toggleLifeCycle = false;
+  inputHook: number;
+  projectLifecycle = 0;
+  briefChild = false;
+
+  triggerHook(): void {
+    this.inputHook = 0;
+  }
+
+  countProject(): void {
+    this.projectLifecycle += 1;
+  }
 }
