@@ -19,6 +19,9 @@ import { LifeCycleBriefComponent } from './guide-lifecycle-hook/life-cycle-brief
 import { LifeCycleBriefChildComponent } from './guide-lifecycle-hook/life-cycle-brief/life-cycle-brief-child/life-cycle-brief-child.component';
 import { BriefDirective } from './guide-lifecycle-hook/life-cycle-brief/brief.directive';
 import { BriefSecondDirective } from './guide-lifecycle-hook/life-cycle-brief/brief-second.directive';
+import { GuideComponentInteractionComponent } from './guide-component-interaction/guide-component-interaction.component';
+import { InteractionChildComponent } from './guide-component-interaction/interaction-child/interaction-child.component';
+import { MissionChildComponent } from './guide-component-interaction/mission-child/mission-child.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { BriefSecondDirective } from './guide-lifecycle-hook/life-cycle-brief/br
     LifeCycleBriefComponent,
     LifeCycleBriefChildComponent,
     BriefDirective,
-    BriefSecondDirective
+    BriefSecondDirective,
+    GuideComponentInteractionComponent,
+    InteractionChildComponent,
+    MissionChildComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<h1>Interaction</h1>
+  <h2>{{master}} controls {{heroes.length}} heroes(With getter and setter ngOnChanges)</h2>
+    <app-interaction-child *ngFor="let hero of heroes" [hero]="hero" [master]="master"></app-interaction-child>
+  <h2>@Output EventEmitter</h2>
+    <app-interaction-child *ngFor="let n of name" [name]="n" (voted)="onVoted($event)"></app-interaction-child>
+  <h2>Use reference variable to interact child component</h2>
+    <app-interaction-child #cChild></app-interaction-child>
+    <button (click)="cChild.childClg()">Click to use child method</button>
+  <h2>Use @ViewChild() to interact with child component at the self-class</h2>
+  <h2>Communicate via service</h2>
+    <button (click)="announce()">Click Announce subject</button>
+    <app-mission-child *ngFor="let astronaut of astronauts" [astronaut]="astronaut"></app-mission-child>
