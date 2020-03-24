@@ -1,0 +1,40 @@
+<h1 class="theme-green">Component Styles</h1>
+  <p>&#8251;apply only within the template of that component's metadata.</p>
+  <p>&#8251;will not apply into child component and ng-content</p>
+  <h2>Special Selectors</h2>
+    <h3>:host(pseudo-class selector)</h3>
+      <p>&#8251;Use :host (pseudo-class selector) to target styles in the element(Metadata Selector) that hosts the component</p>
+      <p>&#8251;The only way to target host element</p>
+      <p>&#8251;The host element is not part of component</p>
+      <p>&#8251;The host element is part of parent template</p>
+      <p>Briefly say: can set own metadata selector style</p>
+      <p>:host()</p>
+      <ng-content></ng-content>
+    <h3>:host-context(pseudo-class selector)</h3>
+      <p>&#8251;Work like :host and will search ancestor of host element and element to enable styles when match</p>
+      <p>Briefly say: can set own template style base on ancestor or parent styles</p>
+      <p>:host-context(.theme-green) h3(turn the &lt;h3&gt; to green base on ancestor style)</p>
+      <img src="../../assets/Annotation_2020-03-23_144055.png" alt="">
+    <h3>::ng-deep</h3>
+      <p>&#8251;let style become global style</p>
+      <p>&#8251;use with :host to avoid bleed global styles, it will limit the style in the current component and descendants(even ng-content)</p>
+      <p>:host ::ng-deep</p>
+      <app-sytle-child></app-sytle-child>
+  <h2>View encapsulation</h2>
+    <p>global css: border-style: solid</p>
+    <p>child css: color: green</p>
+    <h3>Shadow Dom</h3>
+      <p class="from-shadow-child-component">&#8251;use browser native shadow dom(can't use outside css and outside style can't use inside style)</p>
+      <app-shadow-dom></app-shadow-dom>
+    <h3>Emulated(Default)</h3>
+      <p class="from-emulated-child-component">&#8251;emulates the shadow dom(can use outside css and outside style can't use inside style)</p>
+      <app-style-emulated></app-style-emulated>
+    <h3>None</h3>
+      <p class="from-none-child-component">&#8251;disable encapsulation(like a global style)</p>
+      <app-style-none></app-style-none>
+    <h3>Native(Deprecated)</h3>
+  <h2>Inspecting Generated CSS</h2>
+    <p>_nghost for component host element</p>
+    <p>_ngcontent for element within the component's view</p>
+    <p>&#8251;The attribute(_ngcontent) of ng-content come from host element which is projected from parent component</p>
+    <img src="../../assets/Annotation_2020-03-24_155858.png" alt="">

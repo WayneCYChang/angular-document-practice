@@ -11,6 +11,7 @@ export class AppComponent {
   inputHook: number;
   projectLifecycle = 0;
   briefChild = false;
+  changeStyle = false;
 
   triggerHook(): void {
     this.inputHook = 0;

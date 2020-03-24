@@ -22,6 +22,11 @@ import { BriefSecondDirective } from './guide-lifecycle-hook/life-cycle-brief/br
 import { GuideComponentInteractionComponent } from './guide-component-interaction/guide-component-interaction.component';
 import { InteractionChildComponent } from './guide-component-interaction/interaction-child/interaction-child.component';
 import { MissionChildComponent } from './guide-component-interaction/mission-child/mission-child.component';
+import { GuideComponentStylesComponent } from './guide-component-styles/guide-component-styles.component';
+import { SytleChildComponent } from './guide-component-styles/sytle-child/sytle-child.component';
+import { ShadowDomComponent } from './guide-component-styles/shadow-dom/shadow-dom.component';
+import { StyleNoneComponent } from './guide-component-styles/style-none/style-none.component';
+import { StyleEmulatedComponent } from './guide-component-styles/style-emulated/style-emulated.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { MissionChildComponent } from './guide-component-interaction/mission-chi
     BriefSecondDirective,
     GuideComponentInteractionComponent,
     InteractionChildComponent,
-    MissionChildComponent
+    MissionChildComponent,
+    GuideComponentStylesComponent,
+    SytleChildComponent,
+    ShadowDomComponent,
+    StyleNoneComponent,
+    StyleEmulatedComponent
   ],
   imports: [
     BrowserModule,

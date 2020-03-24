@@ -13,4 +13,7 @@
 </app-life-cycle-brief>
 <button (click)="briefChild = !briefChild">Brief Child</button>
 <app-guide-component-interaction></app-guide-component-interaction>
+<app-guide-component-styles style="background-color: orange;" [class.active]="changeStyle">
+  <button (click)="changeStyle = !changeStyle">Click to chang border width</button>
+</app-guide-component-styles>
 <router-outlet></router-outlet>
