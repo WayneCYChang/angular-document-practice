@@ -27,6 +27,11 @@ import { SytleChildComponent } from './guide-component-styles/sytle-child/sytle-
 import { ShadowDomComponent } from './guide-component-styles/shadow-dom/shadow-dom.component';
 import { StyleNoneComponent } from './guide-component-styles/style-none/style-none.component';
 import { StyleEmulatedComponent } from './guide-component-styles/style-emulated/style-emulated.component';
+import { GuideDynamicComponentLoaderComponent } from './guide-dynamic-component-loader/guide-dynamic-component-loader.component';
+import { AdHostDirective } from './guide-dynamic-component-loader/ad-host.directive';
+import { AdBannerComponent } from './guide-dynamic-component-loader/ad-banner/ad-banner.component';
+import { HeroJobAdComponent } from './guide-dynamic-component-loader/hero-job-ad/hero-job-ad.component';
+import { HeroProfileComponent } from './guide-dynamic-component-loader/hero-profile/hero-profile.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +57,19 @@ import { StyleEmulatedComponent } from './guide-component-styles/style-emulated/
     SytleChildComponent,
     ShadowDomComponent,
     StyleNoneComponent,
-    StyleEmulatedComponent
+    StyleEmulatedComponent,
+    GuideDynamicComponentLoaderComponent,
+    AdHostDirective,
+    AdBannerComponent,
+    HeroJobAdComponent,
+    HeroProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
+  // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0
   providers: [],
   bootstrap: [AppComponent]
 })
