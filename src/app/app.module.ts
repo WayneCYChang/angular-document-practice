@@ -32,6 +32,8 @@ import { AdHostDirective } from './guide-dynamic-component-loader/ad-host.direct
 import { AdBannerComponent } from './guide-dynamic-component-loader/ad-banner/ad-banner.component';
 import { HeroJobAdComponent } from './guide-dynamic-component-loader/hero-job-ad/hero-job-ad.component';
 import { HeroProfileComponent } from './guide-dynamic-component-loader/hero-profile/hero-profile.component';
+import { GuideElementsComponent } from './guide-elements/guide-elements.component';
+import { ConverSelfElementComponent } from './guide-elements/conver-self-element/conver-self-element.component';
 
 @NgModule({
   declarations: [
@@ -62,14 +64,17 @@ import { HeroProfileComponent } from './guide-dynamic-component-loader/hero-prof
     AdHostDirective,
     AdBannerComponent,
     HeroJobAdComponent,
-    HeroProfileComponent
+    HeroProfileComponent,
+    GuideElementsComponent,
+    ConverSelfElementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0
+  // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0 - dynamic component loader
+  entryComponents: [ ConverSelfElementComponent ], // use for custom element @angular/element
   providers: [],
   bootstrap: [AppComponent]
 })
