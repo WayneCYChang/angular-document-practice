@@ -1,0 +1,17 @@
+<h1>Attribute directives</h1>
+  <p>&#8251;An attribute directive changes the appearance or behavior of a DOM element</p>
+  <h2>Build a simple attribute directive</h2>
+    <p>&#8251;directive no support namespace</p>
+    <p style="color: red;">app:Highlight(unsupported)</p>
+    <p>@Directive decorator's configuration property specifies Directive's CSS attribute selector, [appHighlight]</p>
+    <p>&#8251;Create an instance of HighlightDirective and injected a reference to the p into directive's constructor</p>
+  <h2>Respond to user-initiated events</h2>
+    <p>Use @hostListener</p>
+  <h2>Pass values into directive with an @Input data binding</h2>
+    <h3>Normal Input</h3>
+      <p appHighlight highlightColor="yellow">Highlight me!(attribute)</p>
+      <p appHighlight [highlightColor]="'orange'">Highlight me!(property)</p>
+      <p appHighlight>Highlight me!(Without attribute)</p>
+    <h3>Alias Input</h3>
+      <p [appHighlight]="'black'">Highlight me!(alias as appHighligh)</p>
+      <p [appHighlight]="">Highlight me!(alias as appHighligh)</p>

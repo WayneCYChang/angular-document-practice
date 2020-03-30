@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +34,8 @@ import { HeroJobAdComponent } from './guide-dynamic-component-loader/hero-job-ad
 import { HeroProfileComponent } from './guide-dynamic-component-loader/hero-profile/hero-profile.component';
 import { GuideElementsComponent } from './guide-elements/guide-elements.component';
 import { ConverSelfElementComponent } from './guide-elements/conver-self-element/conver-self-element.component';
+import { GuideAttributeDirectivesComponent } from './guide-attribute-directives/guide-attribute-directives.component';
+import { HighlightDirective } from './guide-attribute-directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { ConverSelfElementComponent } from './guide-elements/conver-self-element
     HeroJobAdComponent,
     HeroProfileComponent,
     GuideElementsComponent,
-    ConverSelfElementComponent
+    ConverSelfElementComponent,
+    GuideAttributeDirectivesComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,7 @@ import { ConverSelfElementComponent } from './guide-elements/conver-self-element
   // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0 - dynamic component loader
   entryComponents: [ ConverSelfElementComponent ], // use for custom element @angular/element
   providers: [],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
