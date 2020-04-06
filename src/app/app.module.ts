@@ -36,6 +36,8 @@ import { GuideElementsComponent } from './guide-elements/guide-elements.componen
 import { ConverSelfElementComponent } from './guide-elements/conver-self-element/conver-self-element.component';
 import { GuideAttributeDirectivesComponent } from './guide-attribute-directives/guide-attribute-directives.component';
 import { HighlightDirective } from './guide-attribute-directives/highlight.directive';
+import { GuideStructuralDirectivesComponent } from './guide-structural-directives/guide-structural-directives.component';
+import { UnlessDirective } from './guide-structural-directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { HighlightDirective } from './guide-attribute-directives/highlight.direc
     GuideElementsComponent,
     ConverSelfElementComponent,
     GuideAttributeDirectivesComponent,
-    HighlightDirective
+    HighlightDirective,
+    GuideStructuralDirectivesComponent,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

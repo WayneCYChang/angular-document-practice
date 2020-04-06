@@ -1,0 +1,47 @@
+<h1>Structural Directives</h1>
+  <p>One structural directive per host element</p>
+  <p>* is a syntactic sugar</p>
+  <h2>The asterisk (*) prefix</h2>
+    <p>*ngIf="exp as value" will be translated into:</p>
+    <p>ng-template [ngIf]="exp" let-value="ngIf" /ng-template</p>
+    <p>*ngFor="let item of [1,2,3] as items; trackBy: myTrack; index as i" will be translated into:</p>
+    <p>ng-template ngFor let-item [ngForOf]="[1,2,3]" let-items="ngForOf" [ngForTrackBy]="myTrack" let-i="index" /ng-template</p>
+    <p>*ngIf="hero" will be translated into - ng-template [ngIf]="hero"</p>
+  <h2>The ng-template</h2>
+    <p>It is never displayed directly</p>
+    <p>Angular replaces the ng-template and its contents with comment</p>
+      <ng-template>Hi no display</ng-template>
+  <h2>The ng-container</h2>
+    <p>It is a grouping element that doesn't interfere the styles or layout</p>
+    <p>Angular doesn't put it in the DOM</p>
+    <p>I turn the corner
+      <ng-container *ngFor="let hero of heroes"> and saw the {{hero.name}}.</ng-container>
+      I waved and continued on my way.
+    </p>
+    <ng-container *ngIf="true">Hi {{hero}}</ng-container>
+  <h2>Write a structural directive</h2>
+  <button (click)="condition = !condition">Click to use Unless</button>
+  <p>condition status: {{condition}}</p>
+  <p *appUnless="condition" class="unless a">
+    (A) This paragraph is displayed because the condition is false.
+  </p>
+
+  <p *appUnless="!condition" class="unless b">
+    (B) Although the condition is true,
+    this paragraph is displayed because appUnless is set to false.
+  </p>
+
+
+  <h4>UnlessDirective with template</h4>
+
+  <p *appUnless="condition">Show this sentence unless the condition is true.</p>
+
+  <p *appUnless="condition" class="code unless">
+    (A) &lt;p *appUnless="condition" class="code unless"&gt;
+  </p>
+
+  <ng-template [appUnless]="condition">
+    <p class="code unless">
+      (A) &lt;ng-template [appUnless]="condition"&gt;
+    </p>
+  </ng-template>
