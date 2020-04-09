@@ -1,0 +1,53 @@
+<h1>Pipe</h1>
+  <p>Take in data as input and transforms it to a desired output</p>
+  <p>Show birthday(transforms): {{birthday | date}}</p>
+  <p>Show birthday(without transforms): {{birthday}}</p>
+  <h2>Parameterize a pipe</h2>
+    <p>Follow the pipe name with a colon(:)</p>
+    <p>Show birthday(with colon): {{birthday | date:"MM/dd/yy"}}</p>
+    <button (click)="toggleFormat()">Click to toggle format</button>
+    <p>Show birthday(with colon as binding): {{birthday | date:format}}</p>
+  <h2>Chaining a pipe</h2>
+    <p>Show birthday(Chaining uppercase): {{birthday | date:'fullDate' | uppercase }}</p>
+  <h2>Custom pipe</h2>
+    <p>Boost: {{2 | exponentialStrength:10}}</p>
+  <h2>Pipe and change detection</h2>
+    <h3>No pipe(A example compare with pipe)</h3>
+      <p>Update array every times</p>
+      <input type="text" #tInput (keyup.enter)="addHero(tInput.value); tInput.value=''" placeholder="hero name">
+      <button (click)="reset()">Reset</button>
+      <button (click)="changeHero()">Change Object reference</button>
+      <div *ngFor="let hero of heroes">
+        {{hero.name}}<input type="text" #tChange (keyup.enter)="hero.name = tChange.value ; tChange.value=''" placeholder="change name">
+        <input type="text" #tBoolean (keyup.enter)="changeBoolean(hero, tBoolean.value); tBoolean.value=''" placeholder="change boolean">
+        <button (click)="removeHero(hero.name)">remove</button>
+      </div>
+    <h3>Pipe</h3>
+      <h4>pure pipe(Default pure: true)</h4>
+        <p>Only detects pure change as below:</p>
+        <p>primitive value: string, number, boolean, symbol</p>
+        <p>Pipe is independent. Each binding gets its own pipe instance.</p>
+        <p>object <span style="color: red">reference</span>: Date, Array, Function, Object</p>
+        <div *ngFor="let hero of (heroes | flyingHeroes)">
+          {{hero.name}}
+        </div>
+      <h4>impure pipe(pure: false)</h4>
+        <div *ngFor="let hero of (heroes | flyingHeroesImpure)">
+          {{hero.name}}
+        </div>
+      <h4>impure asyncpipe</h4>
+        <p>Allow promise of observable as an input and auto subscribe it</p>
+        <p>Don't need to unsubscribe</p>
+        <button (click)="triggerObs()">Click</button>
+        {{heroes$ | async}}
+      <h4>impure caching pipe</h4>
+        <p>To avoid requests called every few milliseconds</p>
+        <p>Below example shows the pipe instance only calls the server once if input data not change</p>
+        <div *ngFor="let hero of ('assets/heroes.json' | fetchJson)">
+          {{hero.name}}
+        </div>
+      <h4>Json pipe</h4>
+        <p>Show json data on the web</p>
+        <p>Heroes as pipe:
+          {{'assets/heroes.json' | fetchJson | json}}
+        </p>

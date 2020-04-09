@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -38,6 +40,11 @@ import { GuideAttributeDirectivesComponent } from './guide-attribute-directives/
 import { HighlightDirective } from './guide-attribute-directives/highlight.directive';
 import { GuideStructuralDirectivesComponent } from './guide-structural-directives/guide-structural-directives.component';
 import { UnlessDirective } from './guide-structural-directives/unless.directive';
+import { GuidePipesComponent } from './guide-pipes/guide-pipes.component';
+import { ExponentialStrengthPipe } from './guide-pipes/exponential-strength.pipe';
+import { FlyingHeroesPipe } from './guide-pipes/flying-heroes.pipe';
+import { FlyingHeroesImpurePipe } from './guide-pipes/flying-heroes-impure.pipe';
+import { FetchJsonPipe } from './guide-pipes/fetch-json.pipe';
 
 @NgModule({
   declarations: [
@@ -74,12 +81,18 @@ import { UnlessDirective } from './guide-structural-directives/unless.directive'
     GuideAttributeDirectivesComponent,
     HighlightDirective,
     GuideStructuralDirectivesComponent,
-    UnlessDirective
+    UnlessDirective,
+    GuidePipesComponent,
+    ExponentialStrengthPipe,
+    FlyingHeroesPipe,
+    FlyingHeroesImpurePipe,
+    FetchJsonPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0 - dynamic component loader
   entryComponents: [ ConverSelfElementComponent ], // use for custom element @angular/element
