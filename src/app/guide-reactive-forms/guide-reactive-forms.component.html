@@ -1,0 +1,111 @@
+<h1>Reactive Forms</h1>
+  <h2>Binding with reactive form DOM element</h2>
+  <label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+  <h2>Display control value</h2>
+    <p>Use valueChanges Observable listen if value changes</p>
+    <p>Use value get current control value</p>
+    {{name.value}}
+  <h2>Replace control value</h2>
+    <p>Use setValue</p>
+    <button (click)="updateValue()">Update Value</button>
+  <h2>Grouping form controls, Saving form data</h2>
+    <form [formGroup]="profile" (ngSubmit)="onSubmit()">
+      <label>
+        First Name:
+        <input type="text" [formControlName]="'firstName'">
+      </label>
+      <label>
+        Last Name:
+        <input type="text" [formControlName]="'lastName'">
+      </label>
+      <button [disabled]="!profile.dirty">Click</button>
+    </form>
+    {{profile.value['firstName']}}
+    {{profile.value['lastName']}}
+  <h2>Creating nested form group</h2>
+    <form [formGroup]="profile2">
+      <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+      </label>
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+      </label>
+        <div formGroupName="address">
+          <h3>Address</h3>
+          <label>
+            Street:
+            <input type="text" formControlName="street">
+          </label>
+          <label>
+            City:
+            <input type="text" formControlName="city">
+          </label>
+          <label>
+            State:
+            <input type="text" formControlName="state">
+          </label>
+          <label>
+            Zip Code:
+            <input type="text" formControlName="zip">
+          </label>
+        </div>
+    </form>
+    {{profile2.value['firstName']}}
+    {{profile2.value['lastName']}}
+    {{profile2.get('address').value['street']}}
+    {{profile2.get('address').value['city']}}
+    {{profile2.get('address').value['stat']}}
+    {{profile2.get('address').value['zip']}}
+  <h2>Partial model updates</h2>
+    <p>setValue() to set single value</p>
+    <p>patchValue() to set model value</p>
+    <button (click)="patchValue()">Click to patch</button>
+  <h2>Use FormBuilder and Simple form validation</h2>
+    <form [formGroup]="profile3">
+      <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+      </label>
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+      </label>
+        <div formGroupName="address">
+          <h3>Address</h3>
+          <label>
+            Street:
+            <input type="text" formControlName="street">
+          </label>
+          <label>
+            City:
+            <input type="text" formControlName="city">
+          </label>
+          <label>
+            State:
+            <input type="text" formControlName="state">
+          </label>
+          <label>
+            Zip Code:
+            <input type="text" formControlName="zip">
+          </label>
+        </div>
+        <div formArrayName="aliases" *ngFor="let item of aliases.controls; let index = index">
+          Alias:
+          <input type="text" [formControlName]="index">
+        </div>
+    </form>
+    {{profile3.value['firstName']}}
+    {{profile3.value['lastName']}}
+    {{profile3.get('address').value['street']}}
+    {{profile3.get('address').value['city']}}
+    {{profile3.get('address').value['stat']}}
+    {{profile3.get('address').value['zip']}}
+      <h3>Show Forms status</h3>
+        Valid: {{profile3.valid}} Status: {{profile3.status}}
+    <h2>Dynamic controls using form arrays</h2>
+      <button (click)="addAlias()">Add aliases</button>

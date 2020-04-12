@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -45,6 +45,7 @@ import { ExponentialStrengthPipe } from './guide-pipes/exponential-strength.pipe
 import { FlyingHeroesPipe } from './guide-pipes/flying-heroes.pipe';
 import { FlyingHeroesImpurePipe } from './guide-pipes/flying-heroes-impure.pipe';
 import { FetchJsonPipe } from './guide-pipes/fetch-json.pipe';
+import { GuideReactiveFormsComponent } from './guide-reactive-forms/guide-reactive-forms.component';
 
 @NgModule({
   declarations: [
@@ -86,18 +87,20 @@ import { FetchJsonPipe } from './guide-pipes/fetch-json.pipe';
     ExponentialStrengthPipe,
     FlyingHeroesPipe,
     FlyingHeroesImpurePipe,
-    FetchJsonPipe
+    FetchJsonPipe,
+    GuideReactiveFormsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0 - dynamic component loader
   entryComponents: [ ConverSelfElementComponent ], // use for custom element @angular/element
   providers: [],
-  schemas: [NO_ERRORS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA], // for custom element or illegal W3C element
   bootstrap: [AppComponent]
 })
 export class AppModule { }
