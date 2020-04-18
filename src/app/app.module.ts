@@ -46,6 +46,7 @@ import { FlyingHeroesPipe } from './guide-pipes/flying-heroes.pipe';
 import { FlyingHeroesImpurePipe } from './guide-pipes/flying-heroes-impure.pipe';
 import { FetchJsonPipe } from './guide-pipes/fetch-json.pipe';
 import { GuideReactiveFormsComponent } from './guide-reactive-forms/guide-reactive-forms.component';
+import { GuideFormsComponent } from './guide-forms/guide-forms.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { GuideReactiveFormsComponent } from './guide-reactive-forms/guide-reacti
     FlyingHeroesImpurePipe,
     FetchJsonPipe,
     GuideReactiveFormsComponent,
+    GuideFormsComponent,
   ],
   imports: [
     BrowserModule,
