@@ -47,6 +47,10 @@ import { FlyingHeroesImpurePipe } from './guide-pipes/flying-heroes-impure.pipe'
 import { FetchJsonPipe } from './guide-pipes/fetch-json.pipe';
 import { GuideReactiveFormsComponent } from './guide-reactive-forms/guide-reactive-forms.component';
 import { GuideFormsComponent } from './guide-forms/guide-forms.component';
+import { GuideFormValidationComponent } from './guide-form-validation/guide-form-validation.component';
+import { ForbiddenNameDirective } from './guide-form-validation/forbidden-name.directive';
+import { IdentityRevealedDirective } from './guide-form-validation/identity-revealed.directive';
+import { UniqueAlterEgoValidatorDirective } from './guide-form-validation/unique-alter-ego-validator.directive';
 
 @NgModule({
   declarations: [
@@ -91,6 +95,10 @@ import { GuideFormsComponent } from './guide-forms/guide-forms.component';
     FetchJsonPipe,
     GuideReactiveFormsComponent,
     GuideFormsComponent,
+    GuideFormValidationComponent,
+    ForbiddenNameDirective,
+    IdentityRevealedDirective,
+    UniqueAlterEgoValidatorDirective,
   ],
   imports: [
     BrowserModule,

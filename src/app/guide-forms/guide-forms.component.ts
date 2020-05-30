@@ -7,6 +7,7 @@ import { Hero } from './hero';
   styleUrls: ['./guide-forms.component.css']
 })
 export class GuideFormsComponent implements OnInit {
+  // FIXME: form bug
 
   powers = ['Really Smart', 'Super Flexible',
     'Super Hot', 'Weather Changer'];
@@ -18,6 +19,7 @@ export class GuideFormsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('%cExpressionChangedAfterItHasBeenCheckedError Bug here', 'background: #222; color: #bada55');
   }
 
   onSubmit(): void {

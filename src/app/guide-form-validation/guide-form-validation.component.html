@@ -1,0 +1,57 @@
+<h1>Form Validation</h1>
+  <h2>Template-driven validation</h2>
+    <!-- <input type="text" id="name2" name="name2" required appForbiddenName -->
+    <input type="text" id="name2" name="name2" required appForbiddenName="Crazy"
+      minlength="4" [(ngModel)]="hero.name" #name2="ngModel" #name3>
+    <div *ngIf="name2.invalid && (name2.dirty || name2.touched)">
+      <div *ngIf="name2.errors.required">Name is required.</div>
+      {{name2.errors.required}}
+      <div *ngIf="name2.errors.minlength">Name must be at least 4.</div>
+      {{name2.errors.minlength | json}}
+    </div>
+    {{name2.errors | json}} {{name3.className}}
+  <h2>Reactive Form validate</h2>
+    <form [formGroup]="heroForm">
+      <input type="text" formControlName="name">
+      <input type="text" formControlName="alterEgo">
+      <input type="text" formControlName="power">
+    </form>
+    {{name.errors | json}}
+  <h2>Custom Validators</h2>
+    <p>Reference Code (See forbidden-name directive)</p>
+  <h2>Control status CSS classes</h2>
+    <p>element status (See css)</p>
+  <h2>Cross field validation</h2>
+    <h3>Reactive Form</h3>
+      <form [formGroup]="heroForm2">
+        <input type="text" formControlName="name1">
+        <input type="text" formControlName="alterEgo1">
+        <input type="text" formControlName="power1">
+      </form>
+      {{heroForm2.errors?.identityRevealed | json}}
+      <div *ngIf="heroForm2.errors?.identityRevealed && (heroForm2.touched || heroForm2.dirty)">
+        Name cannot match alter ego.
+      </div>
+    <h3>Template-drive Form</h3>
+      <form (ngSubmit)="onSubmit(formF1)" #formF1="ngForm" appIdentityRevealed>
+        <input type="text" id="heroName" name="heroName" [(ngModel)]="heroF2.name">
+        <input type="text" id="heroAlterEgo" name="heroAlterEgo" [(ngModel)]="heroF2.alterEgo">
+        <button type="submit">submit</button>
+      </form>
+      <div *ngIf="formF1.errors?.identityRevealed && (formF1.touched || formF1.dirty)">
+        Name cannot match alter ego.
+      </div>
+  <h2>Async Validation</h2>
+    <h3>Reactive Form</h3>
+      <input type="text" [formControl]="heroC3">
+      <div *ngIf="heroC3.pending">Validating...</div>
+      <div *ngIf="heroC3.errors?.uniqueAlterEgo">Alter ego is already taken.</div>
+    <h3>Template Form</h3>
+      <input type="text" name="heroAlterEgo2"
+        #alterEgo2="ngModel"
+        [(ngModel)]="heroAlterEgo2"
+        [ngModelOptions]="{ updateOn: 'blur' }"
+        appUniqueAlterEgoValidator
+      >
+      <div *ngIf="alterEgo2.pending">Validating...</div>
+      <div *ngIf="alterEgo2.errors?.uniqueAlterEgo">Alter ego is already taken.</div>
