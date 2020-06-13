@@ -51,6 +51,8 @@ import { GuideFormValidationComponent } from './guide-form-validation/guide-form
 import { ForbiddenNameDirective } from './guide-form-validation/forbidden-name.directive';
 import { IdentityRevealedDirective } from './guide-form-validation/identity-revealed.directive';
 import { UniqueAlterEgoValidatorDirective } from './guide-form-validation/unique-alter-ego-validator.directive';
+import { GuideDynamicFormComponent } from './guide-dynamic-form/guide-dynamic-form.component';
+import { DynamicFormQuestionComponent } from './guide-dynamic-form/dynamic-form-question/dynamic-form-question.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +101,8 @@ import { UniqueAlterEgoValidatorDirective } from './guide-form-validation/unique
     ForbiddenNameDirective,
     IdentityRevealedDirective,
     UniqueAlterEgoValidatorDirective,
+    GuideDynamicFormComponent,
+    DynamicFormQuestionComponent,
   ],
   imports: [
     BrowserModule,
