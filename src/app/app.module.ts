@@ -53,6 +53,8 @@ import { IdentityRevealedDirective } from './guide-form-validation/identity-reve
 import { UniqueAlterEgoValidatorDirective } from './guide-form-validation/unique-alter-ego-validator.directive';
 import { GuideDynamicFormComponent } from './guide-dynamic-form/guide-dynamic-form.component';
 import { DynamicFormQuestionComponent } from './guide-dynamic-form/dynamic-form-question/dynamic-form-question.component';
+import { GuideObservableComponent } from './guide-observable/guide-observable.component';
+import { GuideNgmodulesComponent } from './guide-ngmodules/guide-ngmodules.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import { DynamicFormQuestionComponent } from './guide-dynamic-form/dynamic-form-
     UniqueAlterEgoValidatorDirective,
     GuideDynamicFormComponent,
     DynamicFormQuestionComponent,
+    GuideObservableComponent,
+    GuideNgmodulesComponent,
   ],
   imports: [
     BrowserModule,
