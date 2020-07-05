@@ -1,0 +1,24 @@
+<h1>Boot Strapping</h1>
+  <p>NgModule用於描述AppModule應用的各個部如何組織在一起</p>
+  <ul>
+    <li>declarations -- 應用所擁有的元件</li>
+    <li>imports -- 匯入BrowserModule以獲取瀏覽器的服務</li>
+    <li>providers -- 各種服務提供者</li>
+    <li>bootstrap -- 根元件，Angular建立它並插入index.html頁面</li>
+  </ul>
+  <h2>declarations</h2>
+    <p>declarations陣列只能接受可宣告物件。</p>
+    <p>declarations陣列只能接受可宣告东件。</p>
+    <p>透過@NgModule使用指令</p>
+    <ol>
+      <li>從你編寫的檔案匯出它</li>
+      <li>匯入到模組中</li>
+      <li>@NgModule的declarations陣列中宣告它</li>
+    </ol>
+  <h2>imports</h2>
+    <p>告訴Angular該模組想要正常工作，還需要哪些模組</p>
+  <h2>providers</h2>
+    <P>列出所需要的服務</P>
+  <h2>bootstrap</h2>
+    <p>每個元件都有自己的元件樹的根</p>
+    <p>根元件AppComponent，放在bootstrap陣列</p>
