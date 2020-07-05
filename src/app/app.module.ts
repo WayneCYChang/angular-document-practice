@@ -55,6 +55,7 @@ import { GuideDynamicFormComponent } from './guide-dynamic-form/guide-dynamic-fo
 import { DynamicFormQuestionComponent } from './guide-dynamic-form/dynamic-form-question/dynamic-form-question.component';
 import { GuideObservableComponent } from './guide-observable/guide-observable.component';
 import { GuideNgmodulesComponent } from './guide-ngmodules/guide-ngmodules.component';
+import { GuideNgmoduleVsJsmoduleComponent } from './guide-ngmodule-vs-jsmodule/guide-ngmodule-vs-jsmodule.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { GuideNgmodulesComponent } from './guide-ngmodules/guide-ngmodules.compo
     DynamicFormQuestionComponent,
     GuideObservableComponent,
     GuideNgmodulesComponent,
+    GuideNgmoduleVsJsmoduleComponent,
   ],
   imports: [
     BrowserModule,

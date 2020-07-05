@@ -1,0 +1,14 @@
+<h1>JavaScript模組 vs. NgModule</h1>
+  <p>JavaScript和Angular都是使用模組來組織程式碼，形式不同，但Angualr的應用會同時依賴兩者</p>
+<h2>JavaScript模組</h2>J
+  <p>模組是內含JavaScript程式碼獨立檔案。</p>
+  <p>export class AppComponent {{'{'}} {{'}'}}</p>
+  <p>然後，當你在其它檔中需要該程式碼</p>
+  <p>import {{'{'}} AppComponent {{'}'}} from './app.component'</p>
+<h2>NgModule</h2>
+  <ul>
+    <li>NgModule只綁定了可宣告的頪別，這些可宣告的類別只是供angular編譯器用</li>
+    <li>與JavaScript類別把所有成員都放在一個巨型檔案中不同，你要把該模組的類別列在它的@NgModule.declarations列表中</li>
+    <li>NgModule只能匯出可宣告的類別。這可能是它自己擁有的也可能是從其它模組中匯入的。</li>
+    <li>與JavaScript模組不同，NgModule可以透過把服務提供者力到@NgModule.providers列表中，來用服務擴充件整應用。</li>
+  </ul>
