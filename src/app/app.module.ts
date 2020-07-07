@@ -58,6 +58,7 @@ import { GuideNgmodulesComponent } from './guide-ngmodules/guide-ngmodules.compo
 import { GuideNgmoduleVsJsmoduleComponent } from './guide-ngmodule-vs-jsmodule/guide-ngmodule-vs-jsmodule.component';
 import { GuideBootstrappingComponent } from './guide-bootstrapping/guide-bootstrapping.component';
 import { ItemDirective } from './guide-bootstrapping/item.directive';
+import { GuideFrequentNgmodulesComponent } from './guide-frequent-ngmodules/guide-frequent-ngmodules.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { ItemDirective } from './guide-bootstrapping/item.directive';
     GuideNgmoduleVsJsmoduleComponent,
     GuideBootstrappingComponent,
     ItemDirective,
+    GuideFrequentNgmodulesComponent,
   ],
   imports: [
     BrowserModule,
