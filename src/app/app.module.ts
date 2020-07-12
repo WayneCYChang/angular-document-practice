@@ -59,6 +59,8 @@ import { GuideNgmoduleVsJsmoduleComponent } from './guide-ngmodule-vs-jsmodule/g
 import { GuideBootstrappingComponent } from './guide-bootstrapping/guide-bootstrapping.component';
 import { ItemDirective } from './guide-bootstrapping/item.directive';
 import { GuideFrequentNgmodulesComponent } from './guide-frequent-ngmodules/guide-frequent-ngmodules.component';
+import { GuideModuleTypesComponent } from './guide-module-types/guide-module-types.component';
+import { LifeCycleDataChangeComponent } from './life-cycle-data-change/life-cycle-data-change.component';
 
 @NgModule({
   declarations: [
@@ -115,13 +117,15 @@ import { GuideFrequentNgmodulesComponent } from './guide-frequent-ngmodules/guid
     GuideBootstrappingComponent,
     ItemDirective,
     GuideFrequentNgmodulesComponent,
+    GuideModuleTypesComponent,
+    LifeCycleDataChangeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0 - dynamic component loader
   entryComponents: [ ConverSelfElementComponent ], // use for custom element @angular/element

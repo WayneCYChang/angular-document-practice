@@ -1,0 +1,127 @@
+<h1>Module Types</h1>
+  <ul>
+    <li>Domain feature modules - 領域特性模組</li>
+    <li>Routed feature modules - 被動路由特性模組</li>
+    <li>Routing modules - 主動路由特性模組</li>
+    <li>Service feature modules 服務特性模組</li>
+    <li>Widget feature modules - 小部件特性模組</li>
+  </ul>
+  <table style="border: 1px solid;">
+    <thead>
+      <tr>
+        <td>特性模組</td>
+        <td>指導原則</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>領域模組</td>
+        <td>
+          <ul>
+            <li>大部分由declarations組成，只有最上層元件會被匯出<br></li>
+            <li>服務的生命週期必須和該模組的生命週期完全相同<br></li>
+            <li>通常會由更高一級的特性模組匯入且只匯入一次<br></li>
+            <li>對於缺少路由的小型應用，它們可能只會被根模組AppModule匯入一次<br></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>被路由模組</td>
+        <td>
+          <ul>
+            <li>是一種領域特性模組，不過它的最上層元件會作為路由導航時的目標<br></li>
+            <li>根據定義，所有延遲載入模組都是被路由特性模組<br></li>
+            <li>不會匯出任何東西，它的元件永遠不會出現在外部元件中<br></li>
+            <li>延遲載入的被路由特性模組不應該被任何模組載入<br></li>
+            <li>急性載入的被路由特性模組必須被其它模組匯入<br></li>
+            <li>被路由特性模組很少有服務提供，如果有，它所提供的服務的生命週期要跟該模組的生命週期完全相同<br></li>
+            <li>不要在被路由特性模組，或是，由被路由特性模組所匯入的模組中，提供全應用單例的服務<br></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>主路由模組</td>
+        <td>
+          <ul>
+            <li>定義路由</li>
+            <li>把路由配置新增到該模組的imports中</li>
+            <li>路由守衛和解析器的服務提供者提供到該模組的providers</li>
+            <li>
+              路由模組應該與其配套模組同名，但加上"Routing字尾<br>
+              如果配套模組是AppModule，AppRoutingModule就要使用RouterModule.forRoot(routes)把路由器配置加到import<br>
+              如果是子模組，要使用RouterModule.forChild(routes)<br>
+            </li>
+            <li>路由模組會重新匯出這個RouterModule，使其配套模組的元件可以訪問路由器指令</li>
+            <li>路由模組沒有自己的declarations, components, directives, pipes，這些都是特性模組的職責</li>
+          </ul>
+          路由模組只應該被它的配套模組匯入
+        </td>
+      </tr>
+      <tr>
+        <td>服務模組</td>
+        <td>
+          <ul>
+            <li>服務模組提供了一些工具服務，應該是完全由服務提供者組成</li>
+            <li>根模組AppModule是唯一可以匯入服務模組的模組</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>小部件模組</td>
+        <td>
+          <ul>
+            <li>為外部模組提供元件、指令或管道</li>
+            <li>完全由可宣告物件組成，大部份應該被匯出</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <td>Feature Module</td>
+        <td>Declarations</td>
+        <td>Providers</td>
+        <td>Exports</td>
+        <td>Imported by</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Domain</td>
+        <td>Yes</td>
+        <td>Rare</td>
+        <td>Top component</td>
+        <td>Feature, AppModule</td>
+      </tr>
+      <tr>
+        <td>Routed</td>
+        <td>Yes</td>
+        <td>Rare</td>
+        <td>No</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td>Routing</td>
+        <td>No</td>
+        <td>Yes(Guards)</td>
+        <td>RouterModule</td>
+        <td>Feature(for routing)</td>
+      </tr>
+      <tr>
+        <td>Service</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>AppModule</td>
+      </tr>
+      <tr>
+        <td>Widget</td>
+        <td>Yes</td>
+        <td>Rare</td>
+        <td>Yes</td>
+        <td>Feature</td>
+      </tr>
+    </tbody>
+  </table>

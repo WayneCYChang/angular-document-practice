@@ -24,10 +24,10 @@ export class ChildComponent implements OnInit, AfterContentInit, AfterContentChe
   }
 
   ngAfterContentInit(): void {
-    console.log('ngAfterContentInit on parent child');
+    // console.log('ngAfterContentInit on parent child');
   }
 
   ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked on parent child');
+    // console.log('ngAfterContentChecked on parent child');
   }
 }
