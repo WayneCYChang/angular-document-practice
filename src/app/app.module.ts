@@ -61,6 +61,10 @@ import { ItemDirective } from './guide-bootstrapping/item.directive';
 import { GuideFrequentNgmodulesComponent } from './guide-frequent-ngmodules/guide-frequent-ngmodules.component';
 import { GuideModuleTypesComponent } from './guide-module-types/guide-module-types.component';
 import { LifeCycleDataChangeComponent } from './life-cycle-data-change/life-cycle-data-change.component';
+import { GuideEntryComponentsComponent } from './guide-entry-components/guide-entry-components.component';
+import { LifeCycleSequenceComponent } from './life-cycle-sequence/life-cycle-sequence.component';
+import { Parent1Component } from './life-cycle-sequence/parent/parent.component';
+import { Child1Component } from './life-cycle-sequence/child/child.component';
 
 @NgModule({
   declarations: [
@@ -119,6 +123,10 @@ import { LifeCycleDataChangeComponent } from './life-cycle-data-change/life-cycl
     GuideFrequentNgmodulesComponent,
     GuideModuleTypesComponent,
     LifeCycleDataChangeComponent,
+    GuideEntryComponentsComponent,
+    LifeCycleSequenceComponent,
+    Parent1Component,
+    Child1Component
   ],
   imports: [
     BrowserModule,

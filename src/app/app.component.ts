@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   projectLifecycle = 0;
   briefChild = false;
   changeStyle = false;
+  sequence = false;
   questions$: Observable<QuestionBase<any>[]>;
 
   constructor(service: QuestionService) {
@@ -42,5 +43,9 @@ export class AppComponent implements OnInit {
 
   clicked() {
     this.title2 = 'change to title2';
+  }
+
+  clickToToggleSequence() {
+    this.sequence = !this.sequence;
   }
 }

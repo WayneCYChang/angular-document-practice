@@ -1,0 +1,43 @@
+<h1>Entry Component</h1>
+  <p>入口元件有兩種主要的型別：</p>
+  <ul>
+    <li>The bootstrapped root component</li>
+    <li>A component you specify in a route definition</li>
+  </ul>
+  <h2>A bootstrapped entry component</h2>
+    <p>A bootstrapped component is an entry component that Angular loads into the DOM during the bootstrap process</p>
+    <pre>
+      <code>
+        @NgModule({{'{'}}
+          declarations: [
+            AppComponent
+          ],
+          imports: [
+            BrowserModule,
+            FormsModule,
+            HttpClientModule,
+            AppRoutingModule
+          ],
+          providers: [],
+          bootstrap: [AppComponent] // bootstrapped entry component
+        })
+      </code>
+    </pre>
+  <h2>A routed entry component</h2>
+    <p>All router components must be entry components.This would require you to add the component in two places (router and entryComponents)</p>
+    <p>The  compiler is smart enough to recognize that this is a router definition and automatically add the router component into entryComponent</p>
+    <pre>
+      <code>
+        const routes: Routes = [
+          {{'{'}}
+            path: '',
+            component: CustomerListComponent
+          }
+        ];
+      </code>
+    </pre>
+  <h2>entryComponents array</h2>
+    <p>@NgModule decorator has an entryComponents array, most of the time you won't have to explicitly set any entry components because</p>
+    <p>Angular adds components listed in @NgModule.bootstrap</p>
+  <h2>entryComponents and the compiler</h2>
+    <p>If a component isn't an entry component and isn't found in a template, the tree shaker will throw is away.</p>

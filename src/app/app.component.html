@@ -7,15 +7,17 @@
   <button (click)="triggerHook()">Click to trigger ngOnChanges</button>
   <button (click)="0">Click</button>
   <button (click)="countProject()">Click to project life cycle</button>
+  <button (click)="clickToToggleSequence()"> click to toggle sequence</button>
+  <app-life-cycle-sequence *ngIf="sequence"></app-life-cycle-sequence>
 </div>
 <app-life-cycle-brief *ngIf="briefChild">
   <app-life-cycle-brief-child></app-life-cycle-brief-child>
 </app-life-cycle-brief>
 <!-- <app-life-cycle-data-change [title2]="title2"></app-life-cycle-data-change>
   <button (click)="clicked()">click to change data(outside component)</button> -->
-  <app-life-cycle-data-change [name]="name">
+  <!-- <app-life-cycle-data-change [name]="name">
     <pre class="title">YOUR CONTENT HERE</pre>
-  </app-life-cycle-data-change>
+  </app-life-cycle-data-change> -->
 <button (click)="briefChild = !briefChild">Brief Child</button>
 <app-guide-component-interaction></app-guide-component-interaction>
 <app-guide-component-styles style="background-color: orange;" [class.active]="changeStyle">
@@ -36,4 +38,5 @@
 <app-guide-bootstrapping></app-guide-bootstrapping>
 <app-guide-frequent-ngmodules></app-guide-frequent-ngmodules>
 <app-guide-module-types></app-guide-module-types>
+<app-guide-entry-components></app-guide-entry-components>
 <router-outlet></router-outlet>
