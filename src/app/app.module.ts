@@ -1,3 +1,4 @@
+import { CustomerDashboardModule } from './customer-dashboard/customer-dashboard.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -65,6 +66,7 @@ import { GuideEntryComponentsComponent } from './guide-entry-components/guide-en
 import { LifeCycleSequenceComponent } from './life-cycle-sequence/life-cycle-sequence.component';
 import { Parent1Component } from './life-cycle-sequence/parent/parent.component';
 import { Child1Component } from './life-cycle-sequence/child/child.component';
+import { GuideFeatureModulesComponent } from './guide-feature-modules/guide-feature-modules.component';
 
 @NgModule({
   declarations: [
@@ -126,14 +128,16 @@ import { Child1Component } from './life-cycle-sequence/child/child.component';
     GuideEntryComponentsComponent,
     LifeCycleSequenceComponent,
     Parent1Component,
-    Child1Component
+    Child1Component,
+    GuideFeatureModulesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CustomerDashboardModule
   ],
   // entryComponents: [ HeroJobAdComponent, HeroProfileComponent ], // deprecated at v9.0.0 - dynamic component loader
   entryComponents: [ ConverSelfElementComponent ], // use for custom element @angular/element
